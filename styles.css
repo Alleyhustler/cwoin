@@ -1,0 +1,219 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('Untitled design.jpg'); /* Your background image */
+    background-size: cover; /* Ensures the background covers the entire width */
+    background-position: top center; /* Keeps the background image centered */
+    background-attachment: scroll; /* Makes the background scroll with the content */
+    background-repeat: no-repeat; /* No tiling, just one large background */
+    height: 2500px; /* Ensure the body has enough height for scrolling */
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+/* Positioning the image */
+.container {
+    position: absolute;
+    top: 10%; /* Keep this to position the main image */
+    left: 55%; /* Keep this to position the main image */
+    transform: translateX(-50%); /* Horizontally center the container */
+}
+
+/* Centered image styling */
+.center-image {
+    max-width: 80%;
+    height: auto;
+    opacity: 0; /* Start with the image invisible */
+    animation: fadeIn 2s ease-out forwards; /* Animation over 2 seconds */
+    animation-delay: 0.5s; /* Delay the animation by 0.5 seconds */
+}
+
+/* Title image styling */
+.title-image {
+    position: absolute; /* Position it relative to the container */
+    top: -6%; /* Adjust to position the title image */
+    left: 3%; /* Adjust to position it correctly */
+    width: 550px; /* Set a width for the title image */
+    height: auto; /* Maintain aspect ratio */
+    opacity: 0; /* Start with the image invisible */
+    animation: pop 0.6s ease forwards; /* Animation for the pop effect */
+    animation-delay: 1s; /* Delay the animation by 1 second */
+}
+
+/* Keyframes for pop effect */
+@keyframes pop {
+    0% {
+        transform: scale(0.8); /* Start slightly smaller */
+        opacity: 0; /* Invisible */
+    }
+    50% {
+        opacity: 1; /* Fully visible */
+    }
+    100% {
+        transform: scale(1); /* Original size */
+        opacity: 1; /* Ensure it stays visible */
+    }
+}
+
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px); /* Start a bit lower */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Slide into the final position */
+    }
+}
+
+.header-container {
+    position: relative; /* Create a positioning context */
+    width: 100%; /* Full width */
+    height: 190px; /* Provide a height for the container */
+}
+    
+.header-bar {
+    position: absolute; /* Position it relative to the container */
+    top: 1000px; /* Adjust top position as needed */
+    right: 80px; /* Position from the right */
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    border-radius: 25px; /* Rounded corners */
+    padding: 20px; /* Padding around the icons */
+    display: flex; /* Flex layout for icons */
+    align-items: center; /* Center icons vertically */
+    gap: 20px; /* Space between icons */
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.6); /* Glow effect */
+    animation: slideIn 0.5s forwards, pulse 1.5s infinite ease-in-out; /* Animations */
+    z-index: 2; /* Ensure it’s above other content */
+}
+
+@keyframes slideIn {
+    from {
+        top: -80px; /* Off-screen position */
+    }
+    to {
+        top: 80px; /* Final position */
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 15px rgba(0, 255, 0, 0.6);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(0, 255, 0, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(0, 255, 0, 0.6);
+    }
+}
+
+.header-bar:hover {
+    background: rgba(0, 0, 0, 0.9); /* Darker on hover */
+    transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+.icon-container {
+    display: flex;
+    align-items: center; /* Center icons vertically */
+    gap: 10px; /* Space between icons */
+}
+
+.icon-link {
+    display: block;
+    width: 40px; /* Icon size */
+    height: 40px; /* Icon size */
+}
+
+.icon {
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Circular icons */
+    transition: transform 0.3s ease, filter 0.3s ease; /* Smooth transitions */
+}
+
+.icon:hover {
+    transform: rotate(360deg) scale(1.2); /* Rotate and scale on hover */
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7)); /* Glow effect on hover */
+}
+
+.side-image {
+    position: absolute; /* Position these images absolutely */
+    max-width: 70%; /* Size of the side images */
+    height: auto;
+    opacity: 0; /* Start with invisible */
+    animation: fadeIn 2s ease-out forwards; /* Animation over 2 seconds */
+}
+
+/* Position the left image */
+.left-image {
+    left: -75%; /* Adjust this value to move the left image */
+    animation-delay: 0.7s; /* Delay the left image */
+}
+
+/* Position the right image */
+.right-image {
+    right: -75%; /* Adjust this value to move the right image */
+    animation-delay: 0.9s; /* Delay the right image */
+}
+
+.pad-container {
+    position: absolute; /* Keep it absolute for specific positioning */
+    top: 25%; /* Adjust to position below the main image */
+    left: 72%; /* Center horizontally */
+    transform: translateX(-50%); /* Center alignment */
+    text-align: center; /* Center the content */
+    width: 100%; /* Full width */
+    max-width: 1200px; /* Set a max-width to avoid stretching too much */
+    margin-top: 20px; /* Space above the title */
+}
+
+.pad-image {
+    width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+    opacity: 1;
+    animation: fadeIn 2s ease-out forwards; /* Fade-in animation */
+}
+
+.small-images-container {
+    position: absolute; /* Absolute positioning for placement */
+    top: 40%; /* Adjust this to position below the pad image */
+    left: 50%; /* Center horizontally relative to the body */
+    transform: translateX(-50%); /* Center alignment */
+    display: flex; /* Align images horizontally */
+    justify-content: center; /* Center align the images */
+    gap: 300px; /* Space between images */
+}
+
+.small-image {
+    max-width: 250px; /* Set a max width for the small images */
+    height: auto; /* Maintain aspect ratio */
+    opacity: 0; /* Start with images invisible */
+    animation: fadeIn 2s ease-out forwards; /* Fade-in animation */
+    animation-delay: 1.5s; /* Delay to appear after other animations */
+}
+
+.banner-container {
+    position: absolute; /* Absolute positioning for placement */
+    top: 55%; /* Adjust this to position below the small images */
+    left: 50%; /* Center horizontally relative to the body */
+    transform: translateX(-50%); /* Center alignment */
+    width: 100%; /* Full width */
+    max-width: 1600px; /* Increase max-width to allow larger banner */
+    text-align: center; /* Center the banner image */
+    padding: 20px 0; /* Space above and below the banner image */
+}
+
+.banner-image {
+    width: 100%; /* Ensure the banner image uses the full width of the container */
+    max-width: 1600px; /* Limit the maximum width for the banner image */
+    height: auto; /* Maintain aspect ratio */
+}
